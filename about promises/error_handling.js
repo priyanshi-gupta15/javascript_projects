@@ -32,6 +32,7 @@ function createOrdre(cart) {
     }
   });
   return pr;
+  //return a promise
 }
 
 function validatorCart(cart) {
