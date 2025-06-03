@@ -1,35 +1,47 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "poppoins", sans-serif;
+  font-family: "Poppins", sans-serif;
   box-sizing: border-box;
 }
+
 .container {
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(135deg, #153677, #4e085f);
   padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+.round{
+  border-radius: 50%;
+}
+
 .todo-app {
   width: 100%;
   max-width: 540px;
   background: #fff;
-  margin: 100px auto 20px;
-  padding: 40px 30px 70px;
+  margin: 40px auto;
+  padding: 30px 20px 60px;
   border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .todo-app h2 {
   color: #002765;
   display: flex;
-
   align-items: center;
   margin-bottom: 20px;
+  font-size: 24px;
+  flex-wrap: wrap;
 }
 
 .todo-app h2 img {
-  width: 30px;
+  width: 28px;
   margin-left: 10px;
 }
+
 .row {
   display: flex;
   align-items: center;
@@ -38,25 +50,36 @@
   border-radius: 30px;
   padding-left: 20px;
   margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
+
 input {
   flex: 1;
   border: none;
   outline: none;
   background: transparent;
   padding: 10px;
-  font-weight: 14px;
+  font-size: 16px;
+  min-width: 200px;
 }
+
 button {
   border: none;
   outline: none;
-  padding: 16px 50px;
+  padding: 14px 30px;
   background: #ff5945;
   color: #fff;
   font-size: 16px;
   cursor: pointer;
   border-radius: 40px;
+  transition: background 0.3s;
 }
+
+button:hover {
+  background: #e04839;
+}
+
 ul li {
   list-style: none;
   font-size: 17px;
@@ -65,7 +88,9 @@ ul li {
   user-select: none;
   cursor: pointer;
   text-transform: capitalize;
+  word-break: break-word;
 }
+
 ul li::before {
   content: "";
   position: absolute;
@@ -78,13 +103,16 @@ ul li::before {
   top: 8px;
   left: 8px;
 }
+
 ul li.checked {
   text-decoration: line-through;
   color: #555;
 }
+
 ul li.checked::before {
   background-image: url(/global_images/checked.png);
 }
+
 ul li span {
   position: absolute;
   right: 0;
@@ -97,6 +125,52 @@ ul li span {
   text-align: center;
   border-radius: 50%;
 }
+
 ul li span:hover {
   background: #edeef0;
+}
+
+/* ✅ Responsive design for tablets and mobile */
+@media (max-width: 768px) {
+  .todo-app {
+    padding: 20px 15px 40px;
+    margin: 20px 10px;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 15px;
+  }
+
+  input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  ul li {
+    font-size: 16px;
+    padding-left: 45px;
+  }
+
+  ul li::before {
+    top: 10px;
+    left: 10px;
+    height: 24px;
+    width: 24px;
+  }
+
+  ul li span {
+    top: 8px;
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
 }
